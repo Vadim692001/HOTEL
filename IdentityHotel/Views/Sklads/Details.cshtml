@@ -1,0 +1,34 @@
+﻿@model IdentityHotel.Models.Sklad
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sklad</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nam_sk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nam_sk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tip_zber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tip_zber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Sklady }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,72 @@
+﻿@model IdentityHotel.Models.Cooking
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Cooking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.masa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.masa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Odun_vumiry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Odun_vumiry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dishes.Nazva_Strav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dishes.Nazva_Strav)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Goods.Tovar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Goods.Tovar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vidil_kyx.Nazva_vidily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vidil_kyx.Nazva_vidily)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

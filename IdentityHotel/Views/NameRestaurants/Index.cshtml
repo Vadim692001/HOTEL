@@ -1,0 +1,39 @@
+﻿@model IEnumerable<IdentityHotel.Models.NameRestaurant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameRestaurant1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Restaurant.EatingTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameRestaurant1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Restaurant.EatingTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_Restaurant }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_Restaurant }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_Restaurant })
+        </td>
+    </tr>
+}
+
+</table>

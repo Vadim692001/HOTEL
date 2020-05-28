@@ -1,0 +1,63 @@
+﻿@model IEnumerable<IdentityHotel.Models.ZPEmployee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tariff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeWorked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.Sorname_Prac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee1.Name_Prac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee2.Pobat_Prac)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tariff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeWorked)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.Sorname_Prac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.Name_Prac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.Pobat_Prac)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idCost }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idCost }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idCost })
+        </td>
+    </tr>
+}
+
+</table>

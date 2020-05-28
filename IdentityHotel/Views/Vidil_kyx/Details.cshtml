@@ -1,0 +1,26 @@
+﻿@model IdentityHotel.Models.Vidil_kyx
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vidil_kyx</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazva_vidily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazva_vidily)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Vidila_kyx }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

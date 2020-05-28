@@ -1,0 +1,48 @@
+﻿@model IdentityHotel.Models.Bar
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Bar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Sorname_Prac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Sorname_Prac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zv_Bary.Nazva_Bary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zv_Bary.Nazva_Bary)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

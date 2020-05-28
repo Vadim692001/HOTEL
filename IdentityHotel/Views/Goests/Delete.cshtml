@@ -1,0 +1,88 @@
+﻿@model IdentityHotel.Models.Goest
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Goest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SornameGoesst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SornameGoesst)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameGoest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameGoest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurnameGoest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurnameGoest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateArrival)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateArrival)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateExit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateExit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Number.Komplektaci_nomera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number.Komplektaci_nomera)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

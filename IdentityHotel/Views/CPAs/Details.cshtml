@@ -1,0 +1,66 @@
+﻿@model IdentityHotel.Models.CPA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CPA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameGoct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameGoct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamPochatky)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamPochatky)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamKin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamKin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Sorname_Prac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Sorname_Prac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Goest.SornameGoesst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Goest.SornameGoesst)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Poslyg.Nazva_Poslyg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Poslyg.Nazva_Poslyg)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Код }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

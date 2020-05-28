@@ -1,0 +1,1619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Hotel_Restor_DiplomModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bar">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazva_Bary" Type="int" Nullable="false" />
+          <Property Name="Sorname_Prac" Type="int" />
+          <Property Name="Data" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BarSupplies">
+          <Key>
+            <PropertyRef Name="idCost" />
+          </Key>
+          <Property Name="idCost" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id Postavchuka" Type="int" />
+          <Property Name="id Napo" Type="int" />
+          <Property Name="Date" Type="datetime2" Precision="7" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Unit" Type="nchar" MaxLength="10" />
+          <Property Name="Pric" Type="int" />
+          <Property Name="Sum" Type="int" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Cooking">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id Strav" Type="int" Nullable="false" />
+          <Property Name="id Tovary" Type="int" />
+          <Property Name="masa" Type="int" />
+          <Property Name="Odun_vumiry" Type="nvarchar" MaxLength="255" />
+          <Property Name="id Vidila_kyx" Type="int" />
+          <Property Name="Data" Type="datetime" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Hotel_Restor_Diplom.dbo.Cost" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Cost">
+          <Key>
+            <PropertyRef Name="idCost" />
+          </Key>
+          <Property Name="idCost" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cost" Type="varchar" MaxLength="50" />
+          <Property Name="Sum" Type="money" />
+          <Property Name="TranslationAccount" Type="int" />
+        </EntityType>
+        <EntityType Name="CPA">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id Pracivnuca" Type="int" />
+          <Property Name="id Goct" Type="int" />
+          <Property Name="NameGoct" Type="int" />
+          <Property Name="id Poslyg" Type="int" />
+          <Property Name="TeamPochatky" Type="datetime" />
+          <Property Name="TeamKin" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Dishes">
+          <Key>
+            <PropertyRef Name="id Strav" />
+          </Key>
+          <Property Name="id Strav" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazva Strav" Type="nvarchar" MaxLength="255" />
+          <Property Name="Vud Strav" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DrinksВar">
+          <Key>
+            <PropertyRef Name="id Napo" />
+          </Key>
+          <Property Name="id Napo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazva Napo" Type="nvarchar" MaxLength="255" />
+          <Property Name="id Sklady" Type="int" />
+          <Property Name="Kilcist v Litrax" Type="int" />
+          <Property Name="Cantri vurob" Type="nvarchar" MaxLength="255" />
+          <Property Name="Oborot" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="id Pracivnuca" />
+          </Key>
+          <Property Name="id Pracivnuca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sorname_Prac" Type="nvarchar" MaxLength="255" />
+          <Property Name="Name_Prac" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pobat_Prac" Type="nvarchar" MaxLength="255" />
+          <Property Name="Work" Type="nvarchar" MaxLength="255" />
+          <Property Name="Data pochatcy" Type="datetime" />
+          <Property Name="Data kinc" Type="datetime" />
+          <Property Name="Cardca_ZP" Type="int" />
+        </EntityType>
+        <EntityType Name="Goest">
+          <Key>
+            <PropertyRef Name="IdGoest" />
+          </Key>
+          <Property Name="IdGoest" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdNumber" Type="int" Nullable="false" />
+          <Property Name="SornameGoesst" Type="varchar" MaxLength="50" />
+          <Property Name="NameGoest" Type="varchar(max)" />
+          <Property Name="SurnameGoest" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="DateArrival" Type="datetime" />
+          <Property Name="DateExit" Type="datetime" />
+          <Property Name="Sum" Type="int" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="id Goods" />
+          </Key>
+          <Property Name="id Sklady" Type="int" />
+          <Property Name="id Goods" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tovar" Type="nvarchar" MaxLength="255" />
+          <Property Name="Kilcist" Type="int" />
+          <Property Name="Unit" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="NameRestaurant">
+          <Key>
+            <PropertyRef Name="id Restaurant" />
+          </Key>
+          <Property Name="id Restaurant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameRestaurant" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Number">
+          <Key>
+            <PropertyRef Name="id Number" />
+          </Key>
+          <Property Name="id Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Komplektaci_nomera" Type="nvarchar" MaxLength="255" />
+          <Property Name="Kilcist pipl" Type="int" />
+          <Property Name="Cina" Type="money" />
+          <Property Name="Numer" Type="int" />
+        </EntityType>
+        <EntityType Name="Poslyg">
+          <Key>
+            <PropertyRef Name="id Poslyg" />
+          </Key>
+          <Property Name="id Poslyg" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazva Poslyg" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cina Posleg" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Hotel_Restor_Diplom.dbo.Restaurant" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Restaurant">
+          <Key>
+            <PropertyRef Name="idRestaurant" />
+          </Key>
+          <Property Name="idRestaurant" Type="int" Nullable="false" />
+          <Property Name="EatingTime" Type="nchar" MaxLength="10" />
+          <Property Name="Data" Type="datetime" />
+          <Property Name="id Pracivnuka" Type="int" />
+          <Property Name="District" Type="int" />
+          <Property Name="NumberPeople" Type="int" />
+        </EntityType>
+        <EntityType Name="Sklad">
+          <Key>
+            <PropertyRef Name="id Sklady" />
+          </Key>
+          <Property Name="id Sklady" Type="int" Nullable="false" />
+          <Property Name="Nam_sk" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Tip_zber" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SportsHall">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id Pracivnuca" Type="int" />
+          <Property Name="id Trenegra" Type="int" />
+          <Property Name="id Goct" Type="int" />
+          <Property Name="Data" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="id Supplier" />
+          </Key>
+          <Property Name="id Supplier" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazva_Postavchuca" Type="nvarchar" MaxLength="255" />
+          <Property Name="Misto" Type="nvarchar" MaxLength="255" />
+          <Property Name="Contri" Type="nvarchar" MaxLength="255" />
+          <Property Name="Raxynoc_perovody" Type="int" />
+        </EntityType>
+        <EntityType Name="SuppliesGoods">
+          <Key>
+            <PropertyRef Name="idCosts" />
+          </Key>
+          <Property Name="idCosts" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id Postavchuka" Type="int" />
+          <Property Name="id Tovary" Type="int" />
+          <Property Name="Kilkist" Type="int" />
+          <Property Name="Cina_za_odin" Type="money" />
+          <Property Name="Odin_vumiry" Type="nvarchar" MaxLength="255" />
+          <Property Name="Data" Type="datetime" />
+          <Property Name="Sum" Type="money" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Trenager">
+          <Key>
+            <PropertyRef Name="id Trenegra" />
+          </Key>
+          <Property Name="id Trenegra" Type="int" Nullable="false" />
+          <Property Name="NazvaTrenegera" Type="nvarchar" MaxLength="255" />
+          <Property Name="KilcistTrenegera" Type="int" />
+        </EntityType>
+        <EntityType Name="Vidil_kyx">
+          <Key>
+            <PropertyRef Name="id Vidila_kyx" />
+          </Key>
+          <Property Name="id Vidila_kyx" Type="int" Nullable="false" />
+          <Property Name="Nazva_vidily" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ZPEmployee">
+          <Key>
+            <PropertyRef Name="idCost" />
+          </Key>
+          <Property Name="idCost" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SornameEmployee" Type="int" />
+          <Property Name="NameEmployee" Type="int" />
+          <Property Name="Tariff" Type="int" />
+          <Property Name="TimeWorked" Type="int" />
+          <Property Name="Sum" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="CardZP" Type="int" />
+        </EntityType>
+        <EntityType Name="Zv_Bary">
+          <Key>
+            <PropertyRef Name="id Bary" />
+          </Key>
+          <Property Name="id Bary" Type="int" Nullable="false" />
+          <Property Name="Nazva_Bary" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Hotel_Restor_Diplom.dbo.Sum" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Sum">
+          <Property Name="Cina" Type="money" />
+          <Property Name="Sum" Type="int" />
+        </EntityType>-->
+        <Association Name="FK_Bar_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Bar" Type="Self.Bar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id Pracivnuca" />
+            </Principal>
+            <Dependent Role="Bar">
+              <PropertyRef Name="Sorname_Prac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bar_Zv_Bary">
+          <End Role="Zv_Bary" Type="Self.Zv_Bary" Multiplicity="1" />
+          <End Role="Bar" Type="Self.Bar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zv_Bary">
+              <PropertyRef Name="id Bary" />
+            </Principal>
+            <Dependent Role="Bar">
+              <PropertyRef Name="Nazva_Bary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BarSupplies_DrinksВar">
+          <End Role="DrinksВar" Type="Self.DrinksВar" Multiplicity="0..1" />
+          <End Role="BarSupplies" Type="Self.BarSupplies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DrinksВar">
+              <PropertyRef Name="id Napo" />
+            </Principal>
+            <Dependent Role="BarSupplies">
+              <PropertyRef Name="id Napo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BarSupplies_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="BarSupplies" Type="Self.BarSupplies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="id Supplier" />
+            </Principal>
+            <Dependent Role="BarSupplies">
+              <PropertyRef Name="id Postavchuka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cooking_Dishes">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="Cooking" Type="Self.Cooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="id Strav" />
+            </Principal>
+            <Dependent Role="Cooking">
+              <PropertyRef Name="id Strav" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cooking_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="0..1" />
+          <End Role="Cooking" Type="Self.Cooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="id Goods" />
+            </Principal>
+            <Dependent Role="Cooking">
+              <PropertyRef Name="id Tovary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cooking_Vidil_kyx">
+          <End Role="Vidil_kyx" Type="Self.Vidil_kyx" Multiplicity="0..1" />
+          <End Role="Cooking" Type="Self.Cooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vidil_kyx">
+              <PropertyRef Name="id Vidila_kyx" />
+            </Principal>
+            <Dependent Role="Cooking">
+              <PropertyRef Name="id Vidila_kyx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CPA_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="CPA" Type="Self.CPA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id Pracivnuca" />
+            </Principal>
+            <Dependent Role="CPA">
+              <PropertyRef Name="id Pracivnuca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CPA_Goest">
+          <End Role="Goest" Type="Self.Goest" Multiplicity="0..1" />
+          <End Role="CPA" Type="Self.CPA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goest">
+              <PropertyRef Name="IdGoest" />
+            </Principal>
+            <Dependent Role="CPA">
+              <PropertyRef Name="id Goct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CPA_Poslyg">
+          <End Role="Poslyg" Type="Self.Poslyg" Multiplicity="0..1" />
+          <End Role="CPA" Type="Self.CPA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poslyg">
+              <PropertyRef Name="id Poslyg" />
+            </Principal>
+            <Dependent Role="CPA">
+              <PropertyRef Name="id Poslyg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DrinksВar_Sklad">
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="0..1" />
+          <End Role="DrinksВar" Type="Self.DrinksВar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sklad">
+              <PropertyRef Name="id Sklady" />
+            </Principal>
+            <Dependent Role="DrinksВar">
+              <PropertyRef Name="id Sklady" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goest_Number">
+          <End Role="Number" Type="Self.Number" Multiplicity="1" />
+          <End Role="Goest" Type="Self.Goest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Number">
+              <PropertyRef Name="id Number" />
+            </Principal>
+            <Dependent Role="Goest">
+              <PropertyRef Name="IdNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goods_Sklad">
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="0..1" />
+          <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sklad">
+              <PropertyRef Name="id Sklady" />
+            </Principal>
+            <Dependent Role="Goods">
+              <PropertyRef Name="id Sklady" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id Pracivnuca" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="id Pracivnuka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_NameRestaurant">
+          <End Role="NameRestaurant" Type="Self.NameRestaurant" Multiplicity="1" />
+          <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="NameRestaurant">
+              <PropertyRef Name="id Restaurant" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="idRestaurant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SportsHall_Employee1">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="SportsHall" Type="Self.SportsHall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id Pracivnuca" />
+            </Principal>
+            <Dependent Role="SportsHall">
+              <PropertyRef Name="id Pracivnuca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SportsHall_Goest">
+          <End Role="Goest" Type="Self.Goest" Multiplicity="0..1" />
+          <End Role="SportsHall" Type="Self.SportsHall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goest">
+              <PropertyRef Name="IdGoest" />
+            </Principal>
+            <Dependent Role="SportsHall">
+              <PropertyRef Name="id Goct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SportsHall_Trenager">
+          <End Role="Trenager" Type="Self.Trenager" Multiplicity="0..1" />
+          <End Role="SportsHall" Type="Self.SportsHall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trenager">
+              <PropertyRef Name="id Trenegra" />
+            </Principal>
+            <Dependent Role="SportsHall">
+              <PropertyRef Name="id Trenegra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuppliesGoods_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="0..1" />
+          <End Role="SuppliesGoods" Type="Self.SuppliesGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="id Goods" />
+            </Principal>
+            <Dependent Role="SuppliesGoods">
+              <PropertyRef Name="id Tovary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuppliesGoods_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="SuppliesGoods" Type="Self.SuppliesGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="id Supplier" />
+            </Principal>
+            <Dependent Role="SuppliesGoods">
+              <PropertyRef Name="id Postavchuka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZPEmployee_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="ZPEmployee" Type="Self.ZPEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id Pracivnuca" />
+            </Principal>
+            <Dependent Role="ZPEmployee">
+              <PropertyRef Name="SornameEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZPEmployee_Employee1">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="ZPEmployee" Type="Self.ZPEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id Pracivnuca" />
+            </Principal>
+            <Dependent Role="ZPEmployee">
+              <PropertyRef Name="CardZP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZPEmployee_Employee2">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="ZPEmployee" Type="Self.ZPEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id Pracivnuca" />
+            </Principal>
+            <Dependent Role="ZPEmployee">
+              <PropertyRef Name="NameEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Hotel_Restor_DiplomModelContainer">
+          <EntitySet Name="Bar" EntityType="Self.Bar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BarSupplies" EntityType="Self.BarSupplies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cooking" EntityType="Self.Cooking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CPA" EntityType="Self.CPA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dishes" EntityType="Self.Dishes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DrinksВar" EntityType="Self.DrinksВar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Goest" EntityType="Self.Goest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NameRestaurant" EntityType="Self.NameRestaurant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Number" EntityType="Self.Number" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Poslyg" EntityType="Self.Poslyg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sklad" EntityType="Self.Sklad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SportsHall" EntityType="Self.SportsHall" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuppliesGoods" EntityType="Self.SuppliesGoods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trenager" EntityType="Self.Trenager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vidil_kyx" EntityType="Self.Vidil_kyx" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZPEmployee" EntityType="Self.ZPEmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zv_Bary" EntityType="Self.Zv_Bary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cost" EntityType="Self.Cost" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Cost].[idCost] AS [idCost], 
+    [Cost].[Cost] AS [Cost], 
+    [Cost].[Sum] AS [Sum], 
+    [Cost].[TranslationAccount] AS [TranslationAccount]
+    FROM [dbo].[Cost] AS [Cost]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Restaurant" EntityType="Self.Restaurant" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Restaurant].[idRestaurant] AS [idRestaurant], 
+    [Restaurant].[EatingTime] AS [EatingTime], 
+    [Restaurant].[Data] AS [Data], 
+    [Restaurant].[id Pracivnuka] AS [id Pracivnuka], 
+    [Restaurant].[District] AS [District], 
+    [Restaurant].[NumberPeople] AS [NumberPeople]
+    FROM [dbo].[Restaurant] AS [Restaurant]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Bar_Employee" Association="Self.FK_Bar_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Bar" EntitySet="Bar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bar_Zv_Bary" Association="Self.FK_Bar_Zv_Bary">
+            <End Role="Zv_Bary" EntitySet="Zv_Bary" />
+            <End Role="Bar" EntitySet="Bar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BarSupplies_DrinksВar" Association="Self.FK_BarSupplies_DrinksВar">
+            <End Role="DrinksВar" EntitySet="DrinksВar" />
+            <End Role="BarSupplies" EntitySet="BarSupplies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BarSupplies_Supplier" Association="Self.FK_BarSupplies_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="BarSupplies" EntitySet="BarSupplies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cooking_Dishes" Association="Self.FK_Cooking_Dishes">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="Cooking" EntitySet="Cooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cooking_Goods" Association="Self.FK_Cooking_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Cooking" EntitySet="Cooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cooking_Vidil_kyx" Association="Self.FK_Cooking_Vidil_kyx">
+            <End Role="Vidil_kyx" EntitySet="Vidil_kyx" />
+            <End Role="Cooking" EntitySet="Cooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CPA_Employee" Association="Self.FK_CPA_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="CPA" EntitySet="CPA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CPA_Goest" Association="Self.FK_CPA_Goest">
+            <End Role="Goest" EntitySet="Goest" />
+            <End Role="CPA" EntitySet="CPA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CPA_Poslyg" Association="Self.FK_CPA_Poslyg">
+            <End Role="Poslyg" EntitySet="Poslyg" />
+            <End Role="CPA" EntitySet="CPA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DrinksВar_Sklad" Association="Self.FK_DrinksВar_Sklad">
+            <End Role="Sklad" EntitySet="Sklad" />
+            <End Role="DrinksВar" EntitySet="DrinksВar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goest_Number" Association="Self.FK_Goest_Number">
+            <End Role="Number" EntitySet="Number" />
+            <End Role="Goest" EntitySet="Goest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goods_Sklad" Association="Self.FK_Goods_Sklad">
+            <End Role="Sklad" EntitySet="Sklad" />
+            <End Role="Goods" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurant_Employee" Association="Self.FK_Restaurant_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Restaurant" EntitySet="Restaurant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurant_NameRestaurant" Association="Self.FK_Restaurant_NameRestaurant">
+            <End Role="NameRestaurant" EntitySet="NameRestaurant" />
+            <End Role="Restaurant" EntitySet="Restaurant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SportsHall_Employee1" Association="Self.FK_SportsHall_Employee1">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="SportsHall" EntitySet="SportsHall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SportsHall_Goest" Association="Self.FK_SportsHall_Goest">
+            <End Role="Goest" EntitySet="Goest" />
+            <End Role="SportsHall" EntitySet="SportsHall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SportsHall_Trenager" Association="Self.FK_SportsHall_Trenager">
+            <End Role="Trenager" EntitySet="Trenager" />
+            <End Role="SportsHall" EntitySet="SportsHall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuppliesGoods_Goods" Association="Self.FK_SuppliesGoods_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="SuppliesGoods" EntitySet="SuppliesGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuppliesGoods_Supplier" Association="Self.FK_SuppliesGoods_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="SuppliesGoods" EntitySet="SuppliesGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZPEmployee_Employee" Association="Self.FK_ZPEmployee_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="ZPEmployee" EntitySet="ZPEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZPEmployee_Employee1" Association="Self.FK_ZPEmployee_Employee1">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="ZPEmployee" EntitySet="ZPEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZPEmployee_Employee2" Association="Self.FK_ZPEmployee_Employee2">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="ZPEmployee" EntitySet="ZPEmployee" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Hotel_Restor_DiplomModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bar">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazva_Bary" Type="Int32" Nullable="false" />
+          <Property Name="Sorname_Prac" Type="Int32" />
+          <Property Name="Data" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Bar_Employee" FromRole="Bar" ToRole="Employee" />
+          <NavigationProperty Name="Zv_Bary" Relationship="Self.FK_Bar_Zv_Bary" FromRole="Bar" ToRole="Zv_Bary" />
+        </EntityType>
+        <EntityType Name="BarSupplies">
+          <Key>
+            <PropertyRef Name="idCost" />
+          </Key>
+          <Property Name="idCost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Postavchuka" Type="Int32" />
+          <Property Name="id_Napo" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="7" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Unit" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Pric" Type="Int32" />
+          <Property Name="Sum" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="DrinksВar" Relationship="Self.FK_BarSupplies_DrinksВar" FromRole="BarSupplies" ToRole="DrinksВar" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_BarSupplies_Supplier" FromRole="BarSupplies" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Cooking">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Strav" Type="Int32" Nullable="false" />
+          <Property Name="id_Tovary" Type="Int32" />
+          <Property Name="masa" Type="Int32" />
+          <Property Name="Odun_vumiry" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="id_Vidila_kyx" Type="Int32" />
+          <Property Name="Data" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK_Cooking_Dishes" FromRole="Cooking" ToRole="Dishes" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_Cooking_Goods" FromRole="Cooking" ToRole="Goods" />
+          <NavigationProperty Name="Vidil_kyx" Relationship="Self.FK_Cooking_Vidil_kyx" FromRole="Cooking" ToRole="Vidil_kyx" />
+        </EntityType>
+        <EntityType Name="CPA">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Pracivnuca" Type="Int32" />
+          <Property Name="id_Goct" Type="Int32" />
+          <Property Name="NameGoct" Type="Int32" />
+          <Property Name="id_Poslyg" Type="Int32" />
+          <Property Name="TeamPochatky" Type="DateTime" Precision="3" />
+          <Property Name="TeamKin" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_CPA_Employee" FromRole="CPA" ToRole="Employee" />
+          <NavigationProperty Name="Goest" Relationship="Self.FK_CPA_Goest" FromRole="CPA" ToRole="Goest" />
+          <NavigationProperty Name="Poslyg" Relationship="Self.FK_CPA_Poslyg" FromRole="CPA" ToRole="Poslyg" />
+        </EntityType>
+        <EntityType Name="Dishes">
+          <Key>
+            <PropertyRef Name="id_Strav" />
+          </Key>
+          <Property Name="id_Strav" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazva_Strav" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Vud_Strav" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cooking" Relationship="Self.FK_Cooking_Dishes" FromRole="Dishes" ToRole="Cooking" />
+        </EntityType>
+        <EntityType Name="DrinksВar">
+          <Key>
+            <PropertyRef Name="id_Napo" />
+          </Key>
+          <Property Name="id_Napo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazva_Napo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="id_Sklady" Type="Int32" />
+          <Property Name="Kilcist_v_Litrax" Type="Int32" />
+          <Property Name="Cantri_vurob" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Oborot" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BarSupplies" Relationship="Self.FK_BarSupplies_DrinksВar" FromRole="DrinksВar" ToRole="BarSupplies" />
+          <NavigationProperty Name="Sklad" Relationship="Self.FK_DrinksВar_Sklad" FromRole="DrinksВar" ToRole="Sklad" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="id_Pracivnuca" />
+          </Key>
+          <Property Name="id_Pracivnuca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sorname_Prac" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Prac" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Pobat_Prac" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Work" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Data_pochatcy" Type="DateTime" Precision="3" />
+          <Property Name="Data_kinc" Type="DateTime" Precision="3" />
+          <Property Name="Cardca_ZP" Type="Int32" />
+          <NavigationProperty Name="Bar" Relationship="Self.FK_Bar_Employee" FromRole="Employee" ToRole="Bar" />
+          <NavigationProperty Name="CPA" Relationship="Self.FK_CPA_Employee" FromRole="Employee" ToRole="CPA" />
+          <NavigationProperty Name="Restaurant" Relationship="Self.FK_Restaurant_Employee" FromRole="Employee" ToRole="Restaurant" />
+          <NavigationProperty Name="SportsHall" Relationship="Self.FK_SportsHall_Employee1" FromRole="Employee" ToRole="SportsHall" />
+          <NavigationProperty Name="ZPEmployee" Relationship="Self.FK_ZPEmployee_Employee" FromRole="Employee" ToRole="ZPEmployee" />
+          <NavigationProperty Name="ZPEmployee1" Relationship="Self.FK_ZPEmployee_Employee1" FromRole="Employee" ToRole="ZPEmployee" />
+          <NavigationProperty Name="ZPEmployee2" Relationship="Self.FK_ZPEmployee_Employee2" FromRole="Employee" ToRole="ZPEmployee" />
+        </EntityType>
+        <EntityType Name="Goest">
+          <Key>
+            <PropertyRef Name="IdGoest" />
+          </Key>
+          <Property Name="IdGoest" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdNumber" Type="Int32" Nullable="false" />
+          <Property Name="SornameGoesst" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameGoest" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SurnameGoest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="DateArrival" Type="DateTime" Precision="3" />
+          <Property Name="DateExit" Type="DateTime" Precision="3" />
+          <Property Name="Sum" Type="Int32" />
+          <NavigationProperty Name="CPA" Relationship="Self.FK_CPA_Goest" FromRole="Goest" ToRole="CPA" />
+          <NavigationProperty Name="Number" Relationship="Self.FK_Goest_Number" FromRole="Goest" ToRole="Number" />
+          <NavigationProperty Name="SportsHall" Relationship="Self.FK_SportsHall_Goest" FromRole="Goest" ToRole="SportsHall" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="id_Goods" />
+          </Key>
+          <Property Name="id_Sklady" Type="Int32" />
+          <Property Name="id_Goods" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tovar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Kilcist" Type="Int32" />
+          <Property Name="Unit" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Cooking" Relationship="Self.FK_Cooking_Goods" FromRole="Goods" ToRole="Cooking" />
+          <NavigationProperty Name="Sklad" Relationship="Self.FK_Goods_Sklad" FromRole="Goods" ToRole="Sklad" />
+          <NavigationProperty Name="SuppliesGoods" Relationship="Self.FK_SuppliesGoods_Goods" FromRole="Goods" ToRole="SuppliesGoods" />
+        </EntityType>
+        <EntityType Name="NameRestaurant">
+          <Key>
+            <PropertyRef Name="id_Restaurant" />
+          </Key>
+          <Property Name="id_Restaurant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameRestaurant1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Restaurant" Relationship="Self.FK_Restaurant_NameRestaurant" FromRole="NameRestaurant" ToRole="Restaurant" />
+        </EntityType>
+        <EntityType Name="Number">
+          <Key>
+            <PropertyRef Name="id_Number" />
+          </Key>
+          <Property Name="id_Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Komplektaci_nomera" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Kilcist_pipl" Type="Int32" />
+          <Property Name="Cina" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Numer" Type="Int32" />
+          <NavigationProperty Name="Goest" Relationship="Self.FK_Goest_Number" FromRole="Number" ToRole="Goest" />
+        </EntityType>
+        <EntityType Name="Poslyg">
+          <Key>
+            <PropertyRef Name="id_Poslyg" />
+          </Key>
+          <Property Name="id_Poslyg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazva_Poslyg" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cina_Posleg" Type="Int32" />
+          <NavigationProperty Name="CPA" Relationship="Self.FK_CPA_Poslyg" FromRole="Poslyg" ToRole="CPA" />
+        </EntityType>
+        <EntityType Name="Sklad">
+          <Key>
+            <PropertyRef Name="id_Sklady" />
+          </Key>
+          <Property Name="id_Sklady" Type="Int32" Nullable="false" />
+          <Property Name="Nam_sk" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tip_zber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DrinksВar" Relationship="Self.FK_DrinksВar_Sklad" FromRole="Sklad" ToRole="DrinksВar" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_Goods_Sklad" FromRole="Sklad" ToRole="Goods" />
+        </EntityType>
+        <EntityType Name="SportsHall">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Pracivnuca" Type="Int32" />
+          <Property Name="id_Trenegra" Type="Int32" />
+          <Property Name="id_Goct" Type="Int32" />
+          <Property Name="Data" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_SportsHall_Employee1" FromRole="SportsHall" ToRole="Employee" />
+          <NavigationProperty Name="Goest" Relationship="Self.FK_SportsHall_Goest" FromRole="SportsHall" ToRole="Goest" />
+          <NavigationProperty Name="Trenager" Relationship="Self.FK_SportsHall_Trenager" FromRole="SportsHall" ToRole="Trenager" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="id_Supplier" />
+          </Key>
+          <Property Name="id_Supplier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazva_Postavchuca" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Misto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Contri" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Raxynoc_perovody" Type="Int32" />
+          <NavigationProperty Name="BarSupplies" Relationship="Self.FK_BarSupplies_Supplier" FromRole="Supplier" ToRole="BarSupplies" />
+          <NavigationProperty Name="SuppliesGoods" Relationship="Self.FK_SuppliesGoods_Supplier" FromRole="Supplier" ToRole="SuppliesGoods" />
+        </EntityType>
+        <EntityType Name="SuppliesGoods">
+          <Key>
+            <PropertyRef Name="idCosts" />
+          </Key>
+          <Property Name="idCosts" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Postavchuka" Type="Int32" />
+          <Property Name="id_Tovary" Type="Int32" />
+          <Property Name="Kilkist" Type="Int32" />
+          <Property Name="Cina_za_odin" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Odin_vumiry" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Data" Type="DateTime" Precision="3" />
+          <Property Name="Sum" Type="Decimal" Precision="19" Scale="4" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_SuppliesGoods_Goods" FromRole="SuppliesGoods" ToRole="Goods" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_SuppliesGoods_Supplier" FromRole="SuppliesGoods" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Trenager">
+          <Key>
+            <PropertyRef Name="id_Trenegra" />
+          </Key>
+          <Property Name="id_Trenegra" Type="Int32" Nullable="false" />
+          <Property Name="NazvaTrenegera" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="KilcistTrenegera" Type="Int32" />
+          <NavigationProperty Name="SportsHall" Relationship="Self.FK_SportsHall_Trenager" FromRole="Trenager" ToRole="SportsHall" />
+        </EntityType>
+        <EntityType Name="Vidil_kyx">
+          <Key>
+            <PropertyRef Name="id_Vidila_kyx" />
+          </Key>
+          <Property Name="id_Vidila_kyx" Type="Int32" Nullable="false" />
+          <Property Name="Nazva_vidily" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cooking" Relationship="Self.FK_Cooking_Vidil_kyx" FromRole="Vidil_kyx" ToRole="Cooking" />
+        </EntityType>
+        <EntityType Name="ZPEmployee">
+          <Key>
+            <PropertyRef Name="idCost" />
+          </Key>
+          <Property Name="idCost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SornameEmployee" Type="Int32" />
+          <Property Name="NameEmployee" Type="Int32" />
+          <Property Name="Tariff" Type="Int32" />
+          <Property Name="TimeWorked" Type="Int32" />
+          <Property Name="Sum" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="CardZP" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_ZPEmployee_Employee" FromRole="ZPEmployee" ToRole="Employee" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK_ZPEmployee_Employee1" FromRole="ZPEmployee" ToRole="Employee" />
+          <NavigationProperty Name="Employee2" Relationship="Self.FK_ZPEmployee_Employee2" FromRole="ZPEmployee" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Zv_Bary">
+          <Key>
+            <PropertyRef Name="id_Bary" />
+          </Key>
+          <Property Name="id_Bary" Type="Int32" Nullable="false" />
+          <Property Name="Nazva_Bary" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Bar" Relationship="Self.FK_Bar_Zv_Bary" FromRole="Zv_Bary" ToRole="Bar" />
+        </EntityType>
+        <EntityType Name="Cost">
+          <Key>
+            <PropertyRef Name="idCost" />
+          </Key>
+          <Property Name="idCost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cost1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sum" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TranslationAccount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Restaurant">
+          <Key>
+            <PropertyRef Name="idRestaurant" />
+          </Key>
+          <Property Name="idRestaurant" Type="Int32" Nullable="false" />
+          <Property Name="EatingTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Data" Type="DateTime" Precision="3" />
+          <Property Name="id_Pracivnuka" Type="Int32" />
+          <Property Name="District" Type="Int32" />
+          <Property Name="NumberPeople" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Restaurant_Employee" FromRole="Restaurant" ToRole="Employee" />
+          <NavigationProperty Name="NameRestaurant" Relationship="Self.FK_Restaurant_NameRestaurant" FromRole="Restaurant" ToRole="NameRestaurant" />
+        </EntityType>
+        <Association Name="FK_Bar_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Bar" Type="Self.Bar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id_Pracivnuca" />
+            </Principal>
+            <Dependent Role="Bar">
+              <PropertyRef Name="Sorname_Prac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bar_Zv_Bary">
+          <End Role="Zv_Bary" Type="Self.Zv_Bary" Multiplicity="1" />
+          <End Role="Bar" Type="Self.Bar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zv_Bary">
+              <PropertyRef Name="id_Bary" />
+            </Principal>
+            <Dependent Role="Bar">
+              <PropertyRef Name="Nazva_Bary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BarSupplies_DrinksВar">
+          <End Role="DrinksВar" Type="Self.DrinksВar" Multiplicity="0..1" />
+          <End Role="BarSupplies" Type="Self.BarSupplies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DrinksВar">
+              <PropertyRef Name="id_Napo" />
+            </Principal>
+            <Dependent Role="BarSupplies">
+              <PropertyRef Name="id_Napo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BarSupplies_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="BarSupplies" Type="Self.BarSupplies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="id_Supplier" />
+            </Principal>
+            <Dependent Role="BarSupplies">
+              <PropertyRef Name="id_Postavchuka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cooking_Dishes">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="Cooking" Type="Self.Cooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="id_Strav" />
+            </Principal>
+            <Dependent Role="Cooking">
+              <PropertyRef Name="id_Strav" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cooking_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="0..1" />
+          <End Role="Cooking" Type="Self.Cooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="id_Goods" />
+            </Principal>
+            <Dependent Role="Cooking">
+              <PropertyRef Name="id_Tovary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cooking_Vidil_kyx">
+          <End Role="Vidil_kyx" Type="Self.Vidil_kyx" Multiplicity="0..1" />
+          <End Role="Cooking" Type="Self.Cooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vidil_kyx">
+              <PropertyRef Name="id_Vidila_kyx" />
+            </Principal>
+            <Dependent Role="Cooking">
+              <PropertyRef Name="id_Vidila_kyx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CPA_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="CPA" Type="Self.CPA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id_Pracivnuca" />
+            </Principal>
+            <Dependent Role="CPA">
+              <PropertyRef Name="id_Pracivnuca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CPA_Goest">
+          <End Role="Goest" Type="Self.Goest" Multiplicity="0..1" />
+          <End Role="CPA" Type="Self.CPA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goest">
+              <PropertyRef Name="IdGoest" />
+            </Principal>
+            <Dependent Role="CPA">
+              <PropertyRef Name="id_Goct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CPA_Poslyg">
+          <End Role="Poslyg" Type="Self.Poslyg" Multiplicity="0..1" />
+          <End Role="CPA" Type="Self.CPA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poslyg">
+              <PropertyRef Name="id_Poslyg" />
+            </Principal>
+            <Dependent Role="CPA">
+              <PropertyRef Name="id_Poslyg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DrinksВar_Sklad">
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="0..1" />
+          <End Role="DrinksВar" Type="Self.DrinksВar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sklad">
+              <PropertyRef Name="id_Sklady" />
+            </Principal>
+            <Dependent Role="DrinksВar">
+              <PropertyRef Name="id_Sklady" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id_Pracivnuca" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="id_Pracivnuka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SportsHall_Employee1">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="SportsHall" Type="Self.SportsHall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id_Pracivnuca" />
+            </Principal>
+            <Dependent Role="SportsHall">
+              <PropertyRef Name="id_Pracivnuca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZPEmployee_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="ZPEmployee" Type="Self.ZPEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id_Pracivnuca" />
+            </Principal>
+            <Dependent Role="ZPEmployee">
+              <PropertyRef Name="SornameEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZPEmployee_Employee1">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="ZPEmployee" Type="Self.ZPEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id_Pracivnuca" />
+            </Principal>
+            <Dependent Role="ZPEmployee">
+              <PropertyRef Name="CardZP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZPEmployee_Employee2">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="ZPEmployee" Type="Self.ZPEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id_Pracivnuca" />
+            </Principal>
+            <Dependent Role="ZPEmployee">
+              <PropertyRef Name="NameEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goest_Number">
+          <End Role="Number" Type="Self.Number" Multiplicity="1" />
+          <End Role="Goest" Type="Self.Goest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Number">
+              <PropertyRef Name="id_Number" />
+            </Principal>
+            <Dependent Role="Goest">
+              <PropertyRef Name="IdNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SportsHall_Goest">
+          <End Role="Goest" Type="Self.Goest" Multiplicity="0..1" />
+          <End Role="SportsHall" Type="Self.SportsHall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goest">
+              <PropertyRef Name="IdGoest" />
+            </Principal>
+            <Dependent Role="SportsHall">
+              <PropertyRef Name="id_Goct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goods_Sklad">
+          <End Role="Sklad" Type="Self.Sklad" Multiplicity="0..1" />
+          <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sklad">
+              <PropertyRef Name="id_Sklady" />
+            </Principal>
+            <Dependent Role="Goods">
+              <PropertyRef Name="id_Sklady" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuppliesGoods_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="0..1" />
+          <End Role="SuppliesGoods" Type="Self.SuppliesGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="id_Goods" />
+            </Principal>
+            <Dependent Role="SuppliesGoods">
+              <PropertyRef Name="id_Tovary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Restaurant_NameRestaurant">
+          <End Role="NameRestaurant" Type="Self.NameRestaurant" Multiplicity="1" />
+          <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="NameRestaurant">
+              <PropertyRef Name="id_Restaurant" />
+            </Principal>
+            <Dependent Role="Restaurant">
+              <PropertyRef Name="idRestaurant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SportsHall_Trenager">
+          <End Role="Trenager" Type="Self.Trenager" Multiplicity="0..1" />
+          <End Role="SportsHall" Type="Self.SportsHall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trenager">
+              <PropertyRef Name="id_Trenegra" />
+            </Principal>
+            <Dependent Role="SportsHall">
+              <PropertyRef Name="id_Trenegra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuppliesGoods_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="SuppliesGoods" Type="Self.SuppliesGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="id_Supplier" />
+            </Principal>
+            <Dependent Role="SuppliesGoods">
+              <PropertyRef Name="id_Postavchuka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Hotel_Restor_DiplomEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bar" EntityType="Self.Bar" />
+          <EntitySet Name="BarSupplies" EntityType="Self.BarSupplies" />
+          <EntitySet Name="Cooking" EntityType="Self.Cooking" />
+          <EntitySet Name="CPA" EntityType="Self.CPA" />
+          <EntitySet Name="Dishes" EntityType="Self.Dishes" />
+          <EntitySet Name="DrinksВar" EntityType="Self.DrinksВar" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="Goest" EntityType="Self.Goest" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" />
+          <EntitySet Name="NameRestaurant" EntityType="Self.NameRestaurant" />
+          <EntitySet Name="Number" EntityType="Self.Number" />
+          <EntitySet Name="Poslyg" EntityType="Self.Poslyg" />
+          <EntitySet Name="Sklad" EntityType="Self.Sklad" />
+          <EntitySet Name="SportsHall" EntityType="Self.SportsHall" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" />
+          <EntitySet Name="SuppliesGoods" EntityType="Self.SuppliesGoods" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Trenager" EntityType="Self.Trenager" />
+          <EntitySet Name="Vidil_kyx" EntityType="Self.Vidil_kyx" />
+          <EntitySet Name="ZPEmployee" EntityType="Self.ZPEmployee" />
+          <EntitySet Name="Zv_Bary" EntityType="Self.Zv_Bary" />
+          <EntitySet Name="Cost" EntityType="Self.Cost" />
+          <EntitySet Name="Restaurant" EntityType="Self.Restaurant" />
+          <AssociationSet Name="FK_Bar_Employee" Association="Self.FK_Bar_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Bar" EntitySet="Bar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bar_Zv_Bary" Association="Self.FK_Bar_Zv_Bary">
+            <End Role="Zv_Bary" EntitySet="Zv_Bary" />
+            <End Role="Bar" EntitySet="Bar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BarSupplies_DrinksВar" Association="Self.FK_BarSupplies_DrinksВar">
+            <End Role="DrinksВar" EntitySet="DrinksВar" />
+            <End Role="BarSupplies" EntitySet="BarSupplies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BarSupplies_Supplier" Association="Self.FK_BarSupplies_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="BarSupplies" EntitySet="BarSupplies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cooking_Dishes" Association="Self.FK_Cooking_Dishes">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="Cooking" EntitySet="Cooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cooking_Goods" Association="Self.FK_Cooking_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Cooking" EntitySet="Cooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cooking_Vidil_kyx" Association="Self.FK_Cooking_Vidil_kyx">
+            <End Role="Vidil_kyx" EntitySet="Vidil_kyx" />
+            <End Role="Cooking" EntitySet="Cooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CPA_Employee" Association="Self.FK_CPA_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="CPA" EntitySet="CPA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CPA_Goest" Association="Self.FK_CPA_Goest">
+            <End Role="Goest" EntitySet="Goest" />
+            <End Role="CPA" EntitySet="CPA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CPA_Poslyg" Association="Self.FK_CPA_Poslyg">
+            <End Role="Poslyg" EntitySet="Poslyg" />
+            <End Role="CPA" EntitySet="CPA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DrinksВar_Sklad" Association="Self.FK_DrinksВar_Sklad">
+            <End Role="Sklad" EntitySet="Sklad" />
+            <End Role="DrinksВar" EntitySet="DrinksВar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurant_Employee" Association="Self.FK_Restaurant_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Restaurant" EntitySet="Restaurant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SportsHall_Employee1" Association="Self.FK_SportsHall_Employee1">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="SportsHall" EntitySet="SportsHall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZPEmployee_Employee" Association="Self.FK_ZPEmployee_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="ZPEmployee" EntitySet="ZPEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZPEmployee_Employee1" Association="Self.FK_ZPEmployee_Employee1">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="ZPEmployee" EntitySet="ZPEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZPEmployee_Employee2" Association="Self.FK_ZPEmployee_Employee2">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="ZPEmployee" EntitySet="ZPEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goest_Number" Association="Self.FK_Goest_Number">
+            <End Role="Number" EntitySet="Number" />
+            <End Role="Goest" EntitySet="Goest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SportsHall_Goest" Association="Self.FK_SportsHall_Goest">
+            <End Role="Goest" EntitySet="Goest" />
+            <End Role="SportsHall" EntitySet="SportsHall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goods_Sklad" Association="Self.FK_Goods_Sklad">
+            <End Role="Sklad" EntitySet="Sklad" />
+            <End Role="Goods" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuppliesGoods_Goods" Association="Self.FK_SuppliesGoods_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="SuppliesGoods" EntitySet="SuppliesGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Restaurant_NameRestaurant" Association="Self.FK_Restaurant_NameRestaurant">
+            <End Role="NameRestaurant" EntitySet="NameRestaurant" />
+            <End Role="Restaurant" EntitySet="Restaurant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SportsHall_Trenager" Association="Self.FK_SportsHall_Trenager">
+            <End Role="Trenager" EntitySet="Trenager" />
+            <End Role="SportsHall" EntitySet="SportsHall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuppliesGoods_Supplier" Association="Self.FK_SuppliesGoods_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="SuppliesGoods" EntitySet="SuppliesGoods" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Hotel_Restor_DiplomModelContainer" CdmEntityContainer="Hotel_Restor_DiplomEntities">
+          <EntitySetMapping Name="Bar">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Bar">
+              <MappingFragment StoreEntitySet="Bar">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="Nazva_Bary" ColumnName="Nazva_Bary" />
+                <ScalarProperty Name="Sorname_Prac" ColumnName="Sorname_Prac" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BarSupplies">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.BarSupplies">
+              <MappingFragment StoreEntitySet="BarSupplies">
+                <ScalarProperty Name="idCost" ColumnName="idCost" />
+                <ScalarProperty Name="id_Postavchuka" ColumnName="id Postavchuka" />
+                <ScalarProperty Name="id_Napo" ColumnName="id Napo" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Pric" ColumnName="Pric" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cooking">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Cooking">
+              <MappingFragment StoreEntitySet="Cooking">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="id_Strav" ColumnName="id Strav" />
+                <ScalarProperty Name="id_Tovary" ColumnName="id Tovary" />
+                <ScalarProperty Name="masa" ColumnName="masa" />
+                <ScalarProperty Name="Odun_vumiry" ColumnName="Odun_vumiry" />
+                <ScalarProperty Name="id_Vidila_kyx" ColumnName="id Vidila_kyx" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CPA">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.CPA">
+              <MappingFragment StoreEntitySet="CPA">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="id_Pracivnuca" ColumnName="id Pracivnuca" />
+                <ScalarProperty Name="id_Goct" ColumnName="id Goct" />
+                <ScalarProperty Name="NameGoct" ColumnName="NameGoct" />
+                <ScalarProperty Name="id_Poslyg" ColumnName="id Poslyg" />
+                <ScalarProperty Name="TeamPochatky" ColumnName="TeamPochatky" />
+                <ScalarProperty Name="TeamKin" ColumnName="TeamKin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dishes">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Dishes">
+              <MappingFragment StoreEntitySet="Dishes">
+                <ScalarProperty Name="id_Strav" ColumnName="id Strav" />
+                <ScalarProperty Name="Nazva_Strav" ColumnName="Nazva Strav" />
+                <ScalarProperty Name="Vud_Strav" ColumnName="Vud Strav" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DrinksВar">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.DrinksВar">
+              <MappingFragment StoreEntitySet="DrinksВar">
+                <ScalarProperty Name="id_Napo" ColumnName="id Napo" />
+                <ScalarProperty Name="Nazva_Napo" ColumnName="Nazva Napo" />
+                <ScalarProperty Name="id_Sklady" ColumnName="id Sklady" />
+                <ScalarProperty Name="Kilcist_v_Litrax" ColumnName="Kilcist v Litrax" />
+                <ScalarProperty Name="Cantri_vurob" ColumnName="Cantri vurob" />
+                <ScalarProperty Name="Oborot" ColumnName="Oborot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="id_Pracivnuca" ColumnName="id Pracivnuca" />
+                <ScalarProperty Name="Sorname_Prac" ColumnName="Sorname_Prac" />
+                <ScalarProperty Name="Name_Prac" ColumnName="Name_Prac" />
+                <ScalarProperty Name="Pobat_Prac" ColumnName="Pobat_Prac" />
+                <ScalarProperty Name="Work" ColumnName="Work" />
+                <ScalarProperty Name="Data_pochatcy" ColumnName="Data pochatcy" />
+                <ScalarProperty Name="Data_kinc" ColumnName="Data kinc" />
+                <ScalarProperty Name="Cardca_ZP" ColumnName="Cardca_ZP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goest">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Goest">
+              <MappingFragment StoreEntitySet="Goest">
+                <ScalarProperty Name="IdGoest" ColumnName="IdGoest" />
+                <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+                <ScalarProperty Name="SornameGoesst" ColumnName="SornameGoesst" />
+                <ScalarProperty Name="NameGoest" ColumnName="NameGoest" />
+                <ScalarProperty Name="SurnameGoest" ColumnName="SurnameGoest" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="DateArrival" ColumnName="DateArrival" />
+                <ScalarProperty Name="DateExit" ColumnName="DateExit" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goods">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Goods">
+              <MappingFragment StoreEntitySet="Goods">
+                <ScalarProperty Name="id_Sklady" ColumnName="id Sklady" />
+                <ScalarProperty Name="id_Goods" ColumnName="id Goods" />
+                <ScalarProperty Name="Tovar" ColumnName="Tovar" />
+                <ScalarProperty Name="Kilcist" ColumnName="Kilcist" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NameRestaurant">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.NameRestaurant">
+              <MappingFragment StoreEntitySet="NameRestaurant">
+                <ScalarProperty Name="id_Restaurant" ColumnName="id Restaurant" />
+                <ScalarProperty Name="NameRestaurant1" ColumnName="NameRestaurant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Number">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Number">
+              <MappingFragment StoreEntitySet="Number">
+                <ScalarProperty Name="id_Number" ColumnName="id Number" />
+                <ScalarProperty Name="Komplektaci_nomera" ColumnName="Komplektaci_nomera" />
+                <ScalarProperty Name="Kilcist_pipl" ColumnName="Kilcist pipl" />
+                <ScalarProperty Name="Cina" ColumnName="Cina" />
+                <ScalarProperty Name="Numer" ColumnName="Numer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Poslyg">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Poslyg">
+              <MappingFragment StoreEntitySet="Poslyg">
+                <ScalarProperty Name="id_Poslyg" ColumnName="id Poslyg" />
+                <ScalarProperty Name="Nazva_Poslyg" ColumnName="Nazva Poslyg" />
+                <ScalarProperty Name="Cina_Posleg" ColumnName="Cina Posleg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sklad">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Sklad">
+              <MappingFragment StoreEntitySet="Sklad">
+                <ScalarProperty Name="id_Sklady" ColumnName="id Sklady" />
+                <ScalarProperty Name="Nam_sk" ColumnName="Nam_sk" />
+                <ScalarProperty Name="Tip_zber" ColumnName="Tip_zber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SportsHall">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.SportsHall">
+              <MappingFragment StoreEntitySet="SportsHall">
+                <ScalarProperty Name="Код" ColumnName="Код" />
+                <ScalarProperty Name="id_Pracivnuca" ColumnName="id Pracivnuca" />
+                <ScalarProperty Name="id_Trenegra" ColumnName="id Trenegra" />
+                <ScalarProperty Name="id_Goct" ColumnName="id Goct" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supplier">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="id_Supplier" ColumnName="id Supplier" />
+                <ScalarProperty Name="Nazva_Postavchuca" ColumnName="Nazva_Postavchuca" />
+                <ScalarProperty Name="Misto" ColumnName="Misto" />
+                <ScalarProperty Name="Contri" ColumnName="Contri" />
+                <ScalarProperty Name="Raxynoc_perovody" ColumnName="Raxynoc_perovody" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuppliesGoods">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.SuppliesGoods">
+              <MappingFragment StoreEntitySet="SuppliesGoods">
+                <ScalarProperty Name="idCosts" ColumnName="idCosts" />
+                <ScalarProperty Name="id_Postavchuka" ColumnName="id Postavchuka" />
+                <ScalarProperty Name="id_Tovary" ColumnName="id Tovary" />
+                <ScalarProperty Name="Kilkist" ColumnName="Kilkist" />
+                <ScalarProperty Name="Cina_za_odin" ColumnName="Cina_za_odin" />
+                <ScalarProperty Name="Odin_vumiry" ColumnName="Odin_vumiry" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trenager">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Trenager">
+              <MappingFragment StoreEntitySet="Trenager">
+                <ScalarProperty Name="id_Trenegra" ColumnName="id Trenegra" />
+                <ScalarProperty Name="NazvaTrenegera" ColumnName="NazvaTrenegera" />
+                <ScalarProperty Name="KilcistTrenegera" ColumnName="KilcistTrenegera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vidil_kyx">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Vidil_kyx">
+              <MappingFragment StoreEntitySet="Vidil_kyx">
+                <ScalarProperty Name="id_Vidila_kyx" ColumnName="id Vidila_kyx" />
+                <ScalarProperty Name="Nazva_vidily" ColumnName="Nazva_vidily" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZPEmployee">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.ZPEmployee">
+              <MappingFragment StoreEntitySet="ZPEmployee">
+                <ScalarProperty Name="idCost" ColumnName="idCost" />
+                <ScalarProperty Name="SornameEmployee" ColumnName="SornameEmployee" />
+                <ScalarProperty Name="NameEmployee" ColumnName="NameEmployee" />
+                <ScalarProperty Name="Tariff" ColumnName="Tariff" />
+                <ScalarProperty Name="TimeWorked" ColumnName="TimeWorked" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="CardZP" ColumnName="CardZP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zv_Bary">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Zv_Bary">
+              <MappingFragment StoreEntitySet="Zv_Bary">
+                <ScalarProperty Name="id_Bary" ColumnName="id Bary" />
+                <ScalarProperty Name="Nazva_Bary" ColumnName="Nazva_Bary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cost">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Cost">
+              <MappingFragment StoreEntitySet="Cost">
+                <ScalarProperty Name="idCost" ColumnName="idCost" />
+                <ScalarProperty Name="Cost1" ColumnName="Cost" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="TranslationAccount" ColumnName="TranslationAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Restaurant">
+            <EntityTypeMapping TypeName="Hotel_Restor_DiplomModel.Restaurant">
+              <MappingFragment StoreEntitySet="Restaurant">
+                <ScalarProperty Name="idRestaurant" ColumnName="idRestaurant" />
+                <ScalarProperty Name="EatingTime" ColumnName="EatingTime" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="id_Pracivnuka" ColumnName="id Pracivnuka" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="NumberPeople" ColumnName="NumberPeople" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

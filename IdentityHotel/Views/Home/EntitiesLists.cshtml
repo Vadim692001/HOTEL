@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "EntitiesLists";
+}
+
+<h2>Додаткова інформація</h2>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Додаткова інформація Іще</title>
+    <a class="navbar-brand visible-xs" href="/">ПО "Hotel"</a>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="row panel">
+        @Html.ActionLink("Гость", "Index", "Goests", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+
+
+    <div class="row panel">
+        @Html.ActionLink("Склади", "Index", "Sklads", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("Бар", "Index", "Bars",null,
+       new {@class= "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("Приготування страви", "Index", "Cookings", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("СПА", "Index", "CPAs", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("Напої бару", "Index", "DrinksВar", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("Зарплати", "Index", "ZPEmployees", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("Поставки на бар", "Index", "BarSupplies", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("Поставки на товарів", "Index", "SuppliesGoods", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("Послуги", "Index", "Poslygs", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("Поставчики", "Index", "Suppliers", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    @*<div class="row panel">
+            @Html.ActionLink("Прибуток", "Index", "Prubytocs", null,
+                new { @class = "btn btn-block btn-default btn-lg" })
+        </div>*@
+
+    <div class="row panel">
+        @Html.ActionLink("Ресторан", "Index", "Restaurants", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("Сворення нового ресторану", "Index", "NameRestaurants", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("Страви в кухні", "Index", "Dishes", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("Спортзал", "Index", "SportsHalls", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("Тренежер", "Index", "Trenagers", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    <div class="row panel">
+        @Html.ActionLink("Віділи кухні", "Index", "Vidil_kyx", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+    @*<div class="row panel">
+            @Html.ActionLink("Витрати", "Index", "Costs", null,
+                new { @class = "btn btn-block btn-default btn-lg" })
+        </div>*@
+    <div class="row panel">
+        @Html.ActionLink("Бари", "Index", "Zv_Bary", null,
+            new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+</body>
+</html>

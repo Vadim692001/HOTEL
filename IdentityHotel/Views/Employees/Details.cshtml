@@ -1,0 +1,74 @@
+﻿@model IdentityHotel.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sorname_Prac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sorname_Prac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name_Prac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name_Prac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pobat_Prac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pobat_Prac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Work)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Work)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_pochatcy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_pochatcy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_kinc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_kinc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cardca_ZP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cardca_ZP)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Pracivnuca }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

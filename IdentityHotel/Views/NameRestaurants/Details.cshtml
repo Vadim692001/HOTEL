@@ -1,0 +1,34 @@
+﻿@model IdentityHotel.Models.NameRestaurant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NameRestaurant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameRestaurant1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameRestaurant1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant.EatingTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant.EatingTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Restaurant }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

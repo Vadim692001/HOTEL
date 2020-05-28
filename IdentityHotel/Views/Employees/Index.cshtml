@@ -1,0 +1,69 @@
+﻿@model IEnumerable<IdentityHotel.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Дадати працівника", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sorname_Prac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_Prac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pobat_Prac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Work)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_pochatcy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_kinc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cardca_ZP)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sorname_Prac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_Prac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pobat_Prac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Work)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data_pochatcy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data_kinc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cardca_ZP)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_Pracivnuca }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_Pracivnuca }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_Pracivnuca })
+        </td>
+    </tr>
+}
+
+</table>

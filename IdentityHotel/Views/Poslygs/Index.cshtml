@@ -1,0 +1,39 @@
+﻿@model IEnumerable<IdentityHotel.Models.Poslyg>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazva_Poslyg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cina_Posleg)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazva_Poslyg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cina_Posleg)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_Poslyg }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_Poslyg }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_Poslyg })
+        </td>
+    </tr>
+}
+
+</table>

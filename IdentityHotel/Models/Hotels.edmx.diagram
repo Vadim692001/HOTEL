@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="daec30bb76b04ebb83ecc49b447dc158" Name="Diagram1">
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Bar" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.BarSupplies" Width="1.5" PointX="13.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Cooking" Width="1.5" PointX="13.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.CPA" Width="1.5" PointX="6" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Dishes" Width="1.5" PointX="11" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.DrinksВar" Width="1.5" PointX="11" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Employee" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Goest" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Goods" Width="1.5" PointX="11" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.NameRestaurant" Width="1.5" PointX="0.75" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Number" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Poslyg" Width="1.5" PointX="3.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Sklad" Width="1.5" PointX="8.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.SportsHall" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Supplier" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.SuppliesGoods" Width="1.5" PointX="16.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Trenager" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Vidil_kyx" Width="1.5" PointX="11" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.ZPEmployee" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Zv_Bary" Width="1.5" PointX="0.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Cost" Width="1.5" PointX="5.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_Restor_DiplomModel.Restaurant" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_Bar_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_Bar_Zv_Bary" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_BarSupplies_DrinksВar" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_BarSupplies_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_Cooking_Dishes" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_Cooking_Goods" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_Cooking_Vidil_kyx" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_CPA_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_CPA_Goest" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_CPA_Poslyg" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_DrinksВar_Sklad" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_Restaurant_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_SportsHall_Employee1" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_ZPEmployee_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_ZPEmployee_Employee1" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_ZPEmployee_Employee2" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_Goest_Number" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_SportsHall_Goest" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_Goods_Sklad" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_SuppliesGoods_Goods" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_Restaurant_NameRestaurant" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_SportsHall_Trenager" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_Restor_DiplomModel.FK_SuppliesGoods_Supplier" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

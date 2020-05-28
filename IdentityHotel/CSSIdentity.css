@@ -1,0 +1,148 @@
+﻿.clovaHeader3 {
+    color: Snow;
+    font-size: 20px;
+    margin: 15px;
+    text-decoration: none;
+    font-family: Gabriola;
+    margin-top: 40px;
+}
+.clovaHeader3 a {
+    color: Snow;
+    font-size: 20px;
+    margin: 15px;
+    text-decoration: none;
+    font-family: Gabriola;
+    margin-top: 150px;
+    margin-left: 150px;
+}
+.clovaHeader3 a{
+    color: Snow;
+    font-size: 20px;
+    margin: 15px;
+    text-decoration: none;
+    font-family: Gabriola;
+    margin-top: 30px;
+    margin-left: 60px;
+}
+
+.clovaHeader4 a {
+    color: Snow;
+    font-size: 20px;
+    text-decoration: none;
+    font-family: Gabriola;
+    margin-top: -30px;
+    margin-left: 80px;
+}
+.header1 {
+    height: 160px;
+    width: 1460px;
+    margin-top: -40px;
+    margin-left: -7px;
+    background: linear-gradient(to left, #0996ec,#9cd5f7);
+}
+.clovaHeader1 {
+    color: Snow;
+    font-size: 20px;
+    margin: 20px;
+    text-decoration: none;
+    font-family: Gabriola;
+    margin-top:-40px;
+}
+icon-bar{
+    margin-top:-100px;
+}
+
+.textocnova {
+    font-size: 14px;
+    margin-right: 500px;
+}
+/*СЛАЙДЕР*/
+
+
+@keyframes slidy {
+ 0% {left: 0%;}
+ 20% {left: 0%; }
+ 25%{left: -100%; }    
+45% { left: -100%;}
+50% { left: -200%;}
+70% {left: -200%;}
+75% { left: -300%;}
+95% {left: -300%;}
+100% { left: -400%;}
+      }
+
+* {
+    box-sizing: border-box;
+}
+
+body, figure {
+    margin: 0;
+    background: white ;
+    font-family: Istok Web, sans-serif;
+    font-weight: 100;
+}
+
+div#captioned-gallery {
+    width: 100%;
+    overflow: hidden;
+}
+
+figure.slider {
+    position: relative;
+    width: 500%;
+    font-size: 0;
+    animation: 20s slidy infinite;
+}
+
+    figure.slider figure {
+        width: 20%;
+        height: auto;
+        display: inline-block;
+        position: inherit;
+    }
+
+    figure.slider img {
+        width:100%;
+        height: auto;
+    }
+
+    figure.slider figure figcaption {
+        position: absolute;
+        bottom: 0;
+        background: rgba(0,0,0,0.4);
+        color: #fff;
+        width: 100%;
+        font-size: 2rem;
+        padding: .6rem;
+    }
+    /*Текс+слайдер*/
+.text_demoBlock {
+    padding-bottom: 20px; /*отступ снизу*/
+    width: 99%; /*указываем общую ширину блока с колонками*/
+    text-align: justify; /*выравнивание текста внутри колонок*/
+    column-count: 2; /*количество колонок, на которое хотим разбить текст*/
+    column-gap: 30px; /*отступ между колонками*/
+    -moz-column-gap: 30px;
+    -webkit-column-gap: 30px;
+    
+}
+
+.footer1 {
+    height: 270px;
+    width: 1460px;
+    margin-top: 90px;
+    margin-left:-20px;
+    background: linear-gradient(to left,#9cd5f7, #0996ec);
+}
+.fotofooter {
+margin-top:200px;
+}
+
+.clovaFooter1 {
+    color: Snow;
+    font-size: 30px;
+    margin: 20px;
+    text-decoration: none;
+    font-family: Gabriola;
+    margin-top: -40px;
+}

@@ -1,0 +1,50 @@
+﻿@model IdentityHotel.Models.SportsHall
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SportsHall</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Sorname_Prac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Sorname_Prac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Goest.SornameGoesst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Goest.SornameGoesst)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trenager.NazvaTrenegera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trenager.NazvaTrenegera)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Код }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title Hotel</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/CSS.css" rel="stylesheet " type="text/css" />
+    <link href="~/CSSIdentity.css" rel="stylesheet " type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+</head>
+<body>
+   
+    <header class="header1">
+
+        <a href="/"> <img src="~/img/Logo2.png" white="170px " height="150px" style="margin-left:-30px "></a>
+        <a href="/Employees/Index"><span class="clovaHeader3">Працівники</span></a>
+        <a href="/Numbers/Index"><span class="clovaHeader3">Номера</span></a>
+        <a href="/Goods/Index"><span class="clovaHeader3"> Товари </span></a>
+        <a href="/Home/EntitiesLists"><span class="clovaHeader3"> Інше</span></a>
+        <a href="/Home/Rol"><span class="clovaHeader3"> Роль</span></a>
+        <a href="/Manage/Index"><span class="clovaHeader3"> Робота з телефоном</span></a>
+        @*<a href="/Account/Register"><span class="clovaHeader1"> Регістрація</span></a>
+        <a href="/Account/Login"><span class="clovaHeader1"> Вхід</span></a>*@
+        @*<span class="clovaHeader3">
+            @Html.ActionLink("Регістрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+        </span>
+        <span class="clovaHeader3">
+            @Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        </span>*@
+
+
+
+        @Html.Partial("_LoginPartial")
+
+    </header> 
+
+  
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+    <footer class="footer1">
+        <div class="container body-content">
+
+            <hr />
+            <p>
+                &copy; @DateTime.Now.Year-Hotel Comfort
+                <span class="clovaFooter1">Працівники</span>
+                <span class="clovaFooter1">Номера</span>
+                <span class="clovaFooter1"> Товари </span>
+                <span class="clovaFooter1">Контакти</span>
+                <span class="clovaFooter1"> Інше</span>
+
+
+                <span class="fotofooter">
+
+                    <center>
+                        <a href="https://ok.ru"><img src="~/img/socCET/ok_logo.png" white="30px " height="30px" style="margin-left:20px"></a>
+                        <a href="https://www.instagram.com/?hl=ru">
+                            <img src="~/img/socCET/instagram.png" white="30px " height="30px" style="margin-left:20px">
+                            <a href="https://www.facebook.com/">
+                                <img src="~/img/socCET/Без названия.png" white="30px " height="30px" style="margin-left:20px">
+                                <a href="https://twitter.com/?lang=ru">
+                                    <img src="~/img/socCET/Twitter.png" white="30px " height="30px" style="margin-left:20px">
+                                </a>
+                    </center>
+                    <a href="/">   <img src="~/img/Klogo.png" white="170px " height="150px" style="margin-left:900px  "></a>
+                </span>
+        </div>
+
+    </footer>
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+                    @*@Html.Partial("_LoginPartial")*@

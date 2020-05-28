@@ -1,0 +1,64 @@
+﻿@model IdentityHotel.Models.DrinksВar
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DrinksВar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazva_Napo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazva_Napo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kilcist_v_Litrax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kilcist_v_Litrax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantri_vurob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantri_vurob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oborot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oborot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sklad.Nam_sk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sklad.Nam_sk)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

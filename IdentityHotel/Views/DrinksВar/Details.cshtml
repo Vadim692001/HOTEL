@@ -1,0 +1,58 @@
+﻿@model IdentityHotel.Models.DrinksВar
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DrinksВar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazva_Napo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazva_Napo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kilcist_v_Litrax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kilcist_v_Litrax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantri_vurob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantri_vurob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oborot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oborot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sklad.Nam_sk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sklad.Nam_sk)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Napo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

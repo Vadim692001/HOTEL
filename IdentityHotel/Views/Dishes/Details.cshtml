@@ -1,0 +1,34 @@
+﻿@model IdentityHotel.Models.Dishes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Dishes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazva_Strav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazva_Strav)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vud_Strav)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vud_Strav)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Strav }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

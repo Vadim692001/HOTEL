@@ -1,0 +1,74 @@
+﻿@model IdentityHotel.Models.BarSupplies
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BarSupplies</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pric)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pric)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DrinksВar.Nazva_Napo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DrinksВar.Nazva_Napo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier.Nazva_Postavchuca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.Nazva_Postavchuca)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idCost }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

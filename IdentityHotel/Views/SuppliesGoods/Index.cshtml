@@ -1,0 +1,69 @@
+﻿@model IEnumerable<IdentityHotel.Models.SuppliesGoods>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kilkist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cina_za_odin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Odin_vumiry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Goods.Tovar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplier.Nazva_Postavchuca)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kilkist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cina_za_odin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Odin_vumiry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Goods.Tovar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supplier.Nazva_Postavchuca)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idCosts }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idCosts }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idCosts })
+        </td>
+    </tr>
+}
+
+</table>

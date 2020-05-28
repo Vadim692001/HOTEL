@@ -1,0 +1,82 @@
+﻿@model IdentityHotel.Models.Goest
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Goest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SornameGoesst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SornameGoesst)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameGoest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameGoest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurnameGoest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurnameGoest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateArrival)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateArrival)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateExit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateExit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Number.Komplektaci_nomera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number.Komplektaci_nomera)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdGoest }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

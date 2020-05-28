@@ -1,0 +1,50 @@
+﻿@model IdentityHotel.Models.Number
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Number</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Komplektaci_nomera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Komplektaci_nomera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kilcist_pipl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kilcist_pipl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Number }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

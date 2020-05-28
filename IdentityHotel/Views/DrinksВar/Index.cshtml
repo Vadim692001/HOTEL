@@ -1,0 +1,57 @@
+﻿@model IEnumerable<IdentityHotel.Models.DrinksВar>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazva_Napo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kilcist_v_Litrax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantri_vurob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oborot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sklad.Nam_sk)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazva_Napo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kilcist_v_Litrax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantri_vurob)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oborot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sklad.Nam_sk)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_Napo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_Napo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_Napo })
+        </td>
+    </tr>
+}
+
+</table>
